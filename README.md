@@ -10,4 +10,4 @@ Since I like being 'that guy' I decided to make a bruteforce tool.
 Build it using the go toolchain, if you don't know how to do so: there's google for that.
 execute the binary with an optional parameter -n specifying the amount of [goroutines](https://en.wikipedia.org/wiki/Go_(programming_language)#Concurrency) you want to use for calculating the md5sums (default = 4), and with a chess move as argument
 
-example: "./chessMoveMd5BruteForcer -n 4 5b99cf37f882ea71d7e13db08c6503b7"
+example: `./chessMoveMd5BruteForcer -n 4 5b99cf37f882ea71d7e13db08c6503b7`
