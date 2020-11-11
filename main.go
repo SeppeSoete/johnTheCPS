@@ -31,7 +31,6 @@ func main() {
 }
 
 func generatePieceMoves(c chan string) {
-	//Main piece moves
 	pieces := [5]string{"R", "N", "B", "Q", "K"}
 	files := [8]string{"a", "b", "c", "d", "e", "f", "g", "h"}
 	ranks := [8]string{"1", "2", "3", "4", "5", "6", "7", "8"}
@@ -50,6 +49,7 @@ func generatePieceMoves(c chan string) {
 	withPostfixes(c, "0-0", false)
 	withPostfixes(c, "0-0-0", false)
 	c <- "1/2-1/2"
+    c <- "0.5-0.5"
 	c <- "1-0"
 	c <- "0-1"
 	c <- "resign"
