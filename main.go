@@ -156,25 +156,17 @@ func withPostfixes(c chan string, move string, pawnCapture bool) {
 			c <- move + "e.p."
 			c <- move + " e.p."
 
-			c <- move + "e.p.#"
-			c <- move + " e.p.#"
-			c <- move + "e.p. #"
-			c <- move + " e.p. #"
-
-			c <- move + "e.p.+"
-			c <- move + " e.p.+"
-			c <- move + "e.p. +"
-			c <- move + " e.p. +"
-
-			c <- move + "e.p.†"
-			c <- move + " e.p.†"
-			c <- move + "e.p. †"
-			c <- move + " e.p. †"
-
-			c <- move + "e.p.‡"
-			c <- move + " e.p.‡"
-			c <- move + "e.p. ‡"
-			c <- move + " e.p. ‡"
+            enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "#")
+            enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "+")
+            enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "†")
+            enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "‡")
 		}
 	}
+}
+
+func enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c chan string, move string, symbol string) {
+    c <- "e.p." + symbol
+    c <- " e.p." + symbol
+    c <- "e.p. " + symbol
+    c <- " e.p. " + symbol
 }
