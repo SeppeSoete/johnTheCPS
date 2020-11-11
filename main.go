@@ -49,7 +49,7 @@ func generatePieceMoves(c chan string) {
 	withPostfixes(c, "0-0", false)
 	withPostfixes(c, "0-0-0", false)
 	c <- "1/2-1/2"
-    c <- "0.5-0.5"
+	c <- "0.5-0.5"
 	c <- "1-0"
 	c <- "0-1"
 	c <- "resign"
@@ -156,17 +156,17 @@ func withPostfixes(c chan string, move string, pawnCapture bool) {
 			c <- move + "e.p."
 			c <- move + " e.p."
 
-            enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "#")
-            enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "+")
-            enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "†")
-            enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "‡")
+			enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "#")
+			enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "+")
+			enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "†")
+			enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c, move, "‡")
 		}
 	}
 }
 
 func enPassantWithSpacesInBetweenOrNotIdkImNotYourDad(c chan string, move string, symbol string) {
-    c <- "e.p." + symbol
-    c <- " e.p." + symbol
-    c <- "e.p. " + symbol
-    c <- " e.p. " + symbol
+	c <- "e.p." + symbol
+	c <- " e.p." + symbol
+	c <- "e.p. " + symbol
+	c <- " e.p. " + symbol
 }
