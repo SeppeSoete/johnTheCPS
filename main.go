@@ -125,14 +125,21 @@ func generatePieceMoves(c chan string) {
 //calculate md5sum of all moves that appear on the move channel, if they match the given checksum put then on the result channel
 func md5sum(sum string, move chan string, result chan string) {
 	for {
-		h := md5.New()
 		currMove := <-move
-		io.WriteString(h, currMove+"\n")
+        actualMd5sum(sum, currMove + "\n", result)
+        if stupid {
+            actualMd5sum(sum, currMove, result)
+        }
+	}
+}
+
+func actualMd5sum(sum string, move string,result chan string){
+		h := md5.New()
+		io.WriteString(h, move)
 		ourSum := fmt.Sprintf("%x", h.Sum(nil))
 		if strings.Compare(ourSum, sum) == 0 {
-			result <- currMove
+			result <- move
 		}
-	}
 }
 
 //a pawn promotion
